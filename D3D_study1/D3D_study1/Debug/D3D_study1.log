@@ -1,5 +1,4 @@
 ﻿  WinMain.cpp
-C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\D3D_study1\WinMain.h(6,89): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
-C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\D3D_study1\WinMain.cpp(4,1): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
-C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\D3D_study1\WinMain.cpp(50,14): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\D3D_study1\WinMain.h(10,89): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
+C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\D3D_study1\WinMain.cpp(49,1): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
   D3D_study1.vcxproj -> C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study1\Debug\D3D_study1.exe
