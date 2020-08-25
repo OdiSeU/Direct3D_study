@@ -34,7 +34,7 @@ void cleanup()
 void render()
 {
 	if (g_d3dDevice == NULL) return;
-	g_d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0); // Clear BackBuffer
+	g_d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 100), 1.0f, 0); // Clear BackBuffer
 
 	if (SUCCEEDED(g_d3dDevice->BeginScene())) // Begin the Scene
 	{
@@ -50,7 +50,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 	HWND hWnd;
 	WNDCLASS wc;
 	MSG msg;
-
+	
 	wc.style = CS_OWNDC;
 	wc.lpfnWndProc = WndProc;
 	wc.cbClsExtra = 0;
