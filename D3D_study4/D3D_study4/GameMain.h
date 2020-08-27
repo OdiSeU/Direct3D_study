@@ -12,7 +12,7 @@ struct CUSTOMVERTEX
 class GameMain : public D3DApp
 {
 private:
-	LPDIRECT3DVERTEXBUFFER9 lp_vtxBuffer;
+	LPDIRECT3DVERTEXBUFFER9 lpVtxBuffer;
 private:
 	virtual void onInit();
 	virtual void onRender();

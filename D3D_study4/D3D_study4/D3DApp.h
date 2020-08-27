@@ -4,8 +4,8 @@
 class D3DApp
 {
 protected:
-	LPDIRECT3D9 d3d = NULL;
-	LPDIRECT3DDEVICE9 d3dDevice = NULL;
+	LPDIRECT3D9 lpD3d = NULL;
+	LPDIRECT3DDEVICE9 lpD3dDevice = NULL;
 
 protected:
 	virtual void onInit() = 0;

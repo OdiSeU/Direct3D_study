@@ -9,12 +9,12 @@ void GameMain::onInit()
 		{  50.0f, 250.0f, 0.5f, 1.0f, 0xff00ffff, },
 	};
 
-	d3dDevice->CreateVertexBuffer(
+	lpD3dDevice->CreateVertexBuffer(
 		3 * sizeof(CUSTOMVERTEX),
 		0,
 		D3DFVF_CUSTOMVERTEX,
 		D3DPOOL_DEFAULT,
-		&lp_vtxBuffer,
+		&lpVtxBuffer,
 		NULL
 	);
 }
