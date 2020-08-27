@@ -36,11 +36,27 @@ int main()
 	D3DXVec3Scale(&vResult, &vResult, 2.0f);
 	printf("벡터와 정수 곱 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
 
-	//벡터의 단위 벡터
+	// 벡터의 단위 벡터
 	D3DXVec3Normalize(&vResult, &v4);
 	printf("벡터의 단위 벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
 	printf("단위 벡터의 크기 :  %f \n", D3DXVec3Length(&vResult));
 
+	// 벡터의 내적
+	float vDot = D3DXVec3Dot(&v1, &v2);
+	printf("벡터의 내적 :  %f \n", vDot);
+
+	// 벡터의 내적을 이용한 벡터 간 사이각 구하기
+	float vLengthMult = D3DXVec3Length(&v1) * D3DXVec3Length(&v2);
+	float vCos = vDot / vLengthMult;
+	float vRadian = acos(vCos);
+	float vAngle = vRadian * 180 / 3.14159265;
+	printf("벡터의 사이각 :  %f \n", vAngle);
+
+	// 벡터의 외적
+	D3DXVec3Cross(&vResult, &v1, &v2);
+	printf("벡터의 외적 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
+	D3DXVec3Normalize(&vResult, &vResult);
+	printf("외적의 단위 벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
 
 	return 0;
 }
