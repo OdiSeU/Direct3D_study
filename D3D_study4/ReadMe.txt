@@ -17,4 +17,23 @@ x, y 좌표만을 참조하여 그대로 화면에 출력하게 된다. 일반�
 
 정점 버퍼 생성
 HRESULT CreateVertexBuffer(-,-,-,-,-,-);
-	
+
+메모리 사용을 위한 메모리 잠금
+lpD3dDevice->Lock(-,-,-,-);
+
+메모리 복사
+memcpy(-,-,-);
+
+메모리 잠금 해제
+lpD3dDevice->Unlock();
+
+정점 출력
+HRESULT DrawPrimitive(-,-,-);
+
+그리기 방식
+D3DPT_POINTLIST 점 단위로 출력
+D3DPT_LINELIST 선 단위로 출력
+D3DPT_LINESTRIP 연결된 선분 출력
+D3DPT_TRIANGLELIST 삼각형 단위로 출력
+D3DPT_TRIANGLESTRIP 연결된 삼각형 출력
+D3DPT_TRIANGLEFAN 하나의 정점을 공유하는 삼각형 출력
