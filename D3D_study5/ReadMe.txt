@@ -26,6 +26,16 @@ matMatrix.m[i][j]
   - D3DXMatrixInverse(&matResult, NULL, &matMatrix);
 
 회전행렬
-  - D3DXMatrixRotationX(&matResult, 90*3.15159265/180);
-  - D3DXMatrixRotationY(&matResult, 90*3.15159265/180);
-  - D3DXMatrixRotationZ(&matResult, 90*3.15159265/180);
+  - D3DXMatrixRotationX(&matResult, D3DXToRadian(90));
+  - D3DXMatrixRotationY(&matResult, D3DXToRadian(90));
+  - D3DXMatrixRotationZ(&matResult, D3DXToRadian(90));
+
+이동행렬
+  - D3DXMatrixTranslation(&matResult, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+
+크기 행렬
+  - D3DXMatrixScaling(&matResult, 2, 2, 2);
+
+라디안과 호도값의 변환 매크로 함수
+  - D3DXToDegree( radiain );
+  - D3DXToRadian( degree );
