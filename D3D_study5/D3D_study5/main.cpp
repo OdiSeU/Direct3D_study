@@ -16,7 +16,7 @@ void printMatrix(D3DXMATRIX matrix)
 
 int main()
 {
-	D3DXVECTOR3 vResult, vector = {};
+	D3DXVECTOR3 vResult, vector = {1.0f, 0.0f, 1.0f};
 	D3DXMATRIX matIdentity, matMatrix, matResult;
 	D3DXMatrixIdentity(&matIdentity);	//단위행렬 입력
 
@@ -42,13 +42,17 @@ int main()
 	D3DXMatrixInverse(&matResult, NULL, &matResult);
 	printMatrix(matResult);
 	// 이동 행렬
-	D3DXMatrixTranslation(&matResult, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+	D3DXMatrixTranslation(&matResult, 10, 10, 10);
 	printMatrix(matResult);
 	// 크기 행렬
 	D3DXMatrixScaling(&matResult, 2, 2, 2);
 	printMatrix(matResult);
-
-
+	// XYZ 축 모두 회전 행렬
+	D3DXMatrixRotationYawPitchRoll(&matResult, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+	printMatrix(matResult);
+	// 임의의 축을 기준으로 회전하는 회전 행렬
+	D3DXMatrixRotationAxis(&matResult, &vector, D3DXToRadian(90));
+	printMatrix(matResult);
 
 	return 0;
 }

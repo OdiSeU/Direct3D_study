@@ -39,3 +39,12 @@ matMatrix.m[i][j]
 라디안과 호도값의 변환 매크로 함수
   - D3DXToDegree( radiain );
   - D3DXToRadian( degree );
+
+XYZ 축 모두 회전 행렬
+  - D3DXMatrixRotationYawPitchRoll(&matResult, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+
+임의의 축을 기준으로 회전하는 회전 행렬
+  - D3DXMatrixRotationAxis(&matResult, &vector, D3DXToRadian(90));
+
+이동, 회전, 크기 행렬의 결합 순서
+ Scaling -> Rotation(z->x->y) -> Translation
