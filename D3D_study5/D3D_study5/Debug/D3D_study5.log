@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study5\D3D_study5\main.cpp(38,55): warning C4305: '인수': 'double'에서 'FLOAT'(으)로 잘립니다.
+  D3D_study5.vcxproj -> C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study5\Debug\D3D_study5.exe

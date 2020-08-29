@@ -1,2 +1,7 @@
 ﻿  GameMain.cpp
+  Triangle.cpp
+  WinMain.cpp
+C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study4\D3D_study4\WinMain.h(8,89): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
+C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study4\D3D_study4\WinMain.cpp(4,1): warning C4007: 'WinMain': '__stdcall'이어야 합니다.
+  코드를 생성하고 있습니다...
   D3D_study4.vcxproj -> C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study4\Debug\D3D_study4.exe
