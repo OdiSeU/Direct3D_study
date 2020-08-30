@@ -48,3 +48,30 @@ XYZ 축 모두 회전 행렬
 
 이동, 회전, 크기 행렬의 결합 순서
  Scaling -> Rotation(z->x->y) -> Translation
+
+쿼터니온
+  임의의 축을 기준으로 회전 행렬을 구해주는 수학도구
+  일반 회전 행렬에 비해 계산량이 적다.
+  메모리를 적게 차지한다.
+  짐벌락 현상을 완전하게 해결한다.
+
+쿼터니온 데이터구조
+  - D3DXQUATERNION
+  - x, y, z : 회전축, w : 회전값(라디안)
+  - 반시계 방향 회전
+  - 쿼터니온 연산은 우에서 좌 순서로 계산
+
+회전 행렬을 쿼터니온으로 만드는 함수
+  - D3DXQuaternionRotationMatrix(&quat, &matRotation);
+
+yaw, pitch, roll에 의한 쿼터니온을 만드는 함수
+  - D3DXQuaternionRotationYawPitchRoll(&quat, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+
+임의의 축에 대해서 회전한 쿼터니온을 구하는 함수
+  - D3DXQuaternionRotationAxis(&quat, &vector, D3DXToRadian(90));
+
+쿼터니온으로부터 회전 행렬을 구하는 함수
+  - D3DXMatrixRotationQuaternion(&matResult, &quat);
+
+길이가 1인 쿼터니온을 구하는 함수
+  - D3DXQuaternionNormalize(&quat, &quat);

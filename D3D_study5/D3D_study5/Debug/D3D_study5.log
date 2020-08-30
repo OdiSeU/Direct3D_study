@@ -1,3 +1,2 @@
 ﻿  main.cpp
-C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study5\D3D_study5\main.cpp(6,28): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   D3D_study5.vcxproj -> C:\Programming\C++\Winform_Project\Direct3D_study\D3D_study5\Debug\D3D_study5.exe

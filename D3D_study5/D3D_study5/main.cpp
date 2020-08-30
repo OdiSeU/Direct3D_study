@@ -53,6 +53,25 @@ int main()
 	// 임의의 축을 기준으로 회전하는 회전 행렬
 	D3DXMatrixRotationAxis(&matResult, &vector, D3DXToRadian(90));
 	printMatrix(matResult);
+	// 쿼터니온
+	D3DXQUATERNION quat;
+	D3DXMATRIX matRotation;
+	D3DXMatrixRotationX(&matRotation, D3DXToRadian(90));
+	// 회전 행렬을 쿼터니온으로 만드는 함수
+	D3DXQuaternionRotationMatrix(&quat, &matRotation);
+	printf("x : %f , y : %f, z : %f, z : %f\n", quat.x, quat.y, quat.z, quat.w);
+	// yaw, pitch, roll에 의한 쿼터니온을 만드는 함수
+	D3DXQuaternionRotationYawPitchRoll(&quat, D3DXToRadian(90), D3DXToRadian(90), D3DXToRadian(90));
+	printf("x : %f , y : %f, z : %f, z : %f\n", quat.x, quat.y, quat.z, quat.w);
+	// 임의의 축에 대해서 회전한 쿼터니온을 구하는 함수
+	D3DXQuaternionRotationAxis(&quat, &vector, D3DXToRadian(90));
+	printf("x : %f , y : %f, z : %f, z : %f\n", quat.x, quat.y, quat.z, quat.w);
+	// 쿼터니온으로부터 회전 행렬을 구하는 함수
+	D3DXMatrixRotationQuaternion(&matResult, &quat);
+	printMatrix(matResult);
+	// 길이가 1인 쿼터니온을 구하는 함수
+	D3DXQuaternionNormalize(&quat, &quat);
+	printf("x : %f , y : %f, z : %f, z : %f\n", quat.x, quat.y, quat.z, quat.w);
 
 	return 0;
 }
