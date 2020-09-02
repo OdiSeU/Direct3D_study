@@ -19,11 +19,32 @@
 투영 변환 (Projection Transformation)
   - 원근 투영으로 가까운 물체와 먼 거리의 물체를 원근감 있게 하는 변환
 
-월드, 뷰, 투영 행렬의 설정 함수
-  - SetTransform( , );
+깊이 버퍼
+  - 카메라와 가장 가까운 픽셀만을 출력하기 위한 픽셀의 정보를 저장하는 기법
+  - z 퍼버 설정 코드
+   init() {
+     d3dpp.EnableAutoDepthStencil = true;
+     d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
+     lpD3dDevice->SetRenderState(D3DRS_ZENABLE, true);
+   }
+   render() {
+     lpD3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 100), 1.0f, 0);
+   }
 
-뷰 변환 행렬 함수
-  - D3DXMatrixLookAtLH( , , , );
+정점 렌더링 파이프라인 만들기
+  - 월드 변환 행렬 설정
+    lpD3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
+  - 뷰 변환 행렬 설정
+    D3DXMatrixLookAtLH( , , , );
+    lpD3dDevice->SetTransform(D3DTS_VIEW, &matView);
+  - 투영 변환 행렬 설정
+    D3DXMatrixPerspectiveFowLH( , , , );
+    lpD3dDevice->SetTransform(D3DTS_PROJECTION, &matProj);
 
-투영 변환 행렬 함수
-  - D3DXMatrixPerspectiveFovRH( , , , , );
+뷰포트 설정
+  - 렌더링 하기 위한 화면의 크기를 설정
+    D3DVIEWPORT9 vp;
+    lpD3dDevice->SetViewprot(&vp);
+
+축 만들기
+  - 축은 고정이기 때문에 update 필요없따!

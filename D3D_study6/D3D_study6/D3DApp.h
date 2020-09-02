@@ -6,6 +6,7 @@ class D3DApp
 protected:
 	LPDIRECT3D9 lpD3d = NULL;
 	LPDIRECT3DDEVICE9 lpD3dDevice = NULL;
+	HWND hWnd;
 
 protected:
 	virtual void onInit() = 0;

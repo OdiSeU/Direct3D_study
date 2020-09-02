@@ -142,15 +142,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Axis.cpp" />
     <ClCompile Include="D3DApp.cpp" />
     <ClCompile Include="GameMain.cpp" />
-    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Axis.h" />
     <ClInclude Include="D3DApp.h" />
     <ClInclude Include="GameMain.h" />
-    <ClInclude Include="Triangle.h" />
     <ClInclude Include="WinMain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

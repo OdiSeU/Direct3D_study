@@ -1,11 +1,15 @@
 #pragma once
 #include "D3DApp.h"
-#include "Triangle.h"
+#include "Axis.h"
+#include <d3dx9math.h>
 
 class GameMain : public D3DApp
 {
 private:
-	Triangle triangle;
+	D3DXMATRIX matView;
+	D3DXMATRIX matProj;
+	D3DXVECTOR3	vecEye, vecAt, vecUp;
+	Axis axis;
 private:
 	virtual void onInit();
 	virtual void onRender();

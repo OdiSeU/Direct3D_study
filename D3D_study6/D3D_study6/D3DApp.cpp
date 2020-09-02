@@ -2,6 +2,8 @@
 
 HRESULT D3DApp::initD3D(HWND hWnd)
 {
+	this->hWnd = hWnd;
+
 	if ((lpD3d = Direct3DCreate9(D3D_SDK_VERSION)) == NULL)
 		return E_FAIL;
 	D3DPRESENT_PARAMETERS d3dpp;
@@ -9,6 +11,10 @@ HRESULT D3DApp::initD3D(HWND hWnd)
 	d3dpp.Windowed = true;
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
+
+	// Z buffer setting
+	d3dpp.EnableAutoDepthStencil = true;
+	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
 
 	if (FAILED(lpD3d->CreateDevice(
 		D3DADAPTER_DEFAULT,
@@ -20,7 +26,11 @@ HRESULT D3DApp::initD3D(HWND hWnd)
 	)))
 		return E_FAIL;
 
+	// Z buffer setting
+	lpD3dDevice->SetRenderState(D3DRS_ZENABLE, true);
+
 	onInit();
+
 	return S_OK;
 }
 
@@ -32,7 +42,7 @@ void D3DApp::update()
 void D3DApp::render()
 {
 	if (lpD3dDevice == NULL) return;
-	lpD3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 100), 1.0f, 0); // Clear BackBuffer
+	lpD3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0); // Clear BackBuffer
 
 	if (SUCCEEDED(lpD3dDevice->BeginScene())) // Begin the Scene
 	{
