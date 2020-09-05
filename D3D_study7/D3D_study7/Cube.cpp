@@ -13,15 +13,15 @@ void Cube::onIinit(LPDIRECT3DDEVICE9 lpD3dDevice)
     this->lpD3dDevice = lpD3dDevice;
 
     CUSTOMVERTEX vtxArr[] = {
-        { D3DXVECTOR3(-1.0, 1.0, 1.0) , D3DCOLOR_RGBA(255, 0, 255, 255) },
-        { D3DXVECTOR3(1.0, 1.0, 1.0) , D3DCOLOR_RGBA(0, 255, 255, 255) },
-        { D3DXVECTOR3(1.0, 1.0, -1.0) , D3DCOLOR_RGBA(0, 0, 255, 255) },
-        { D3DXVECTOR3(-1.0, 1.0, -1.0) , D3DCOLOR_RGBA(255, 255, 0, 255) },
+        { D3DXVECTOR3(-1.0f, 1.0f,  1.0f) ,  D3DCOLOR_RGBA(255, 0, 255, 255) },
+        { D3DXVECTOR3(1.0f, 1.0f,  1.0f)  , D3DCOLOR_RGBA(0, 255, 0, 255) },
+        { D3DXVECTOR3(1.0f, 1.0f, -1.0f)  , D3DCOLOR_RGBA(0, 0, 255, 255) },
+        { D3DXVECTOR3(-1.0f, 1.0f, -1.0f)  , D3DCOLOR_RGBA(255, 255, 0, 255) },
 
-        { D3DXVECTOR3(-1.0, -1.0, 1.0) , D3DCOLOR_RGBA(255, 0, 255, 255) },
-        { D3DXVECTOR3(-1.0, -1.0, 1.0) , D3DCOLOR_RGBA(255, 0, 255, 255) },
-        { D3DXVECTOR3(-1.0, -1.0, -1.0) , D3DCOLOR_RGBA(255, 0, 255, 255) },
-        { D3DXVECTOR3(-1.0, -1.0, -1.0) , D3DCOLOR_RGBA(255, 0, 255, 255) }
+        { D3DXVECTOR3(-1.0f, -1.0f,  1.0f) , D3DCOLOR_RGBA(255, 0, 0, 255) },
+        { D3DXVECTOR3(1.0f, -1.0f,  1.0f) , D3DCOLOR_RGBA(0, 255, 10, 255) },
+        { D3DXVECTOR3(1.0f, -1.0f, -1.0f) , D3DCOLOR_RGBA(0, 0, 255, 255) },
+        { D3DXVECTOR3(-1.0f, -1.0f, -1.0f) , D3DCOLOR_RGBA(255, 0, 0, 255) }
     };
 
     WORD idxArr[] =
@@ -57,7 +57,7 @@ void Cube::onIinit(LPDIRECT3DDEVICE9 lpD3dDevice)
 }
 void Cube::onRender()
 {
-    lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+    lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
     lpD3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
     D3DXMATRIX matWorld;
     D3DXMatrixIdentity(&matWorld);

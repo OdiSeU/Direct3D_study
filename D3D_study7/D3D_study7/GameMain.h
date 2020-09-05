@@ -1,6 +1,7 @@
 #pragma once
 #include "D3DApp.h"
 #include "Axis.h"
+#include "Cube.h"
 #include <d3dx9math.h>
 
 class GameMain : public D3DApp
@@ -10,6 +11,7 @@ private:
 	D3DXMATRIX matProj;
 	D3DXVECTOR3	vecEye, vecAt, vecUp;
 	Axis axis;
+	Cube cube;
 private:
 	virtual void onInit();
 	virtual void onRender();

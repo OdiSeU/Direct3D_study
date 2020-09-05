@@ -33,11 +33,13 @@ void GameMain::onInit()
 	lpD3dDevice->SetViewport(&vp);
 
 	axis.onInit(lpD3dDevice);
+	cube.onIinit(lpD3dDevice);
 }
 
 void GameMain::onRender()
 {
 	axis.onRender();
+	cube.onRender();
 }
 
 void GameMain::onUpdate()
@@ -48,6 +50,7 @@ void GameMain::onUpdate()
 void GameMain::onRelease()
 {
 	axis.onRelease();
+	cube.onRelease();
 }
 
 GameMain::GameMain()
