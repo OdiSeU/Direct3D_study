@@ -57,8 +57,8 @@ void Cube::onIinit(LPDIRECT3DDEVICE9 lpD3dDevice)
 }
 void Cube::onRender()
 {
-    lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-    lpD3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+    lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+    //lpD3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); // 컬링 해제
     D3DXMATRIX matWorld;
     D3DXMatrixIdentity(&matWorld);
     lpD3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
@@ -70,7 +70,7 @@ void Cube::onRender()
     lpD3dDevice->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 8, 0, 6 * 2); // sizeof( Indices ) / sizeof(WORD) / 3
 
     lpD3dDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
-    lpD3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+    //lpD3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); // 컬링 복구
 }
 void Cube::onRelease()
 {
