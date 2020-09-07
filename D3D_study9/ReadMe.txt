@@ -18,3 +18,6 @@
   - D3DXQuaternionRotationYawPitchRoll();
   - D3DXMatrixRotationQuaternion();
   - D3DXQuaternionNormalize();
+
+키보드 입력 체크
+  - if(GetAsyncKeyState('A') < 0)
