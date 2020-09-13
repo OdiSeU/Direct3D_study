@@ -44,7 +44,6 @@ void GameMain::onRender()
 	axis.onRender();
 	lpD3dDevice->SetRenderState(D3DRS_LIGHTING, false);
 	lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-	lpTeapotMesh->DrawSubset(0);
 
 	D3DXMatrixScaling(&matScale, scale, scale, scale);
 	lpD3dDevice->SetTransform(D3DTS_WORLD, &matScale);
@@ -62,9 +61,8 @@ void GameMain::onUpdate()
 
 void GameMain::onRelease()
 {
-	axis.onRelease();
 	lpTeapotMesh->Release();
-
+	axis.onRelease();
 }
 
 GameMain::GameMain()

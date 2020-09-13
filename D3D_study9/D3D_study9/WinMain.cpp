@@ -32,10 +32,11 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 	);
 
 	ShowWindow(hWnd, SW_SHOW);	 // Print window on screen
-
+	//UpdateWindow(hWnd);
 	g_GameMain.initD3D(g_hWnd);
 
-	while (true) {
+	while (true)
+	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))	 // Message loop
 		{
 			if (msg.message == WM_QUIT) break;
@@ -49,7 +50,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 		}
 	}
 
-	return 0;
+	return (int)msg.wParam;
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
@@ -63,10 +64,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		g_GameMain.cleanup();
 		PostQuitMessage(0);
 		break;
-	default:
-		return DefWindowProc(hWnd, iMsg, wParam, lParam);
-		break;
 	}
-
-	return 0;
+	return DefWindowProc(hWnd, iMsg, wParam, lParam);
 }
