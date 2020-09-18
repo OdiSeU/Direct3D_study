@@ -38,24 +38,15 @@ void GameMain::onInit()
 
 void GameMain::onRender()
 {
-	D3DXMATRIX matRotationX, matRotationY, matRotationZ, matRotation;
-	float fRotX, fRotY, fRotZ;
-
-	fRotX = D3DXToRadian(45);
-	fRotY = D3DXToRadian(45);
-	fRotZ = D3DXToRadian(90);
+	D3DXMATRIX matRotation;
+	D3DXVECTOR3 v1(1.0f, 1.0f, 1.0f);
 
 	axis.onRender();
 	lpD3dDevice->SetRenderState(D3DRS_LIGHTING, false);
 	lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 
 
-	D3DXMatrixRotationX(&matRotationX, fRotX);
-	D3DXMatrixRotationY(&matRotationY, fRotY);
-	D3DXMatrixRotationZ(&matRotationZ, fRotZ);
-
-	D3DXMatrixRotationYawPitchRoll( &matRotation,  fRotY, fRotX, fRotZ );
-	//matRotation = matRotationZ * matRotationX * matRotationY; // 회전 행렬의 결합
+	D3DXMatrixRotationAxis(&matRotation, &v1, GetTickCount() * 0.001f);
 	lpD3dDevice->SetTransform(D3DTS_WORLD, &matRotation);
 	lpTeapotMesh->DrawSubset(0);
 	
