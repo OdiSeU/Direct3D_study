@@ -38,16 +38,33 @@ void GameMain::onInit()
 
 void GameMain::onRender()
 {
-	D3DXMATRIX matTranslation;
+	D3DXMATRIX matRot, matTrans, matScale, matWorld;
+	float scaling[3] = { 0.3f, 0.6f, 1.0f };
+	D3DXVECTOR3 trans[3] = { D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(2.0f, 0.0f, 0.0f), D3DXVECTOR3(5.0f, 0.0f, 0.0f) };
 
 	axis.onRender();
 	lpD3dDevice->SetRenderState(D3DRS_LIGHTING, false);
 	lpD3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-	D3DXMatrixTranslation(&matTranslation, 5.0f, 0.0f, 3.0f);
 
-	lpD3dDevice->SetTransform(D3DTS_WORLD, &matTranslation);
+	D3DXMatrixRotationY(&matRot, GetTickCount() * 0.001f);
+
+	D3DXMatrixScaling(&matScale, scaling[0], scaling[0], scaling[0]);
+	D3DXMatrixTranslation(&matTrans, trans[0].x, trans[0].y, trans[0].z);
+	matWorld = matScale * matRot * matTrans;
+	lpD3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
 	lpTeapotMesh->DrawSubset(0);
-	
+
+	D3DXMatrixScaling(&matScale, scaling[1], scaling[1], scaling[1]);
+	D3DXMatrixTranslation(&matTrans, trans[1].x, trans[1].y, trans[1].z);
+	matWorld = matScale * matRot * matTrans;
+	lpD3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
+	lpTeapotMesh->DrawSubset(0);
+
+	D3DXMatrixScaling(&matScale, scaling[2], scaling[2], scaling[2]);
+	D3DXMatrixTranslation(&matTrans, trans[2].x, trans[2].y, trans[2].z);
+	matWorld = matScale * matTrans * matRot;
+	lpD3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
+	lpTeapotMesh->DrawSubset(0);
 }
 
 void GameMain::onUpdate()
